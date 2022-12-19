@@ -1,0 +1,32 @@
+[
+    {
+        "milestone_title": "",
+        "milestone_description": "",
+        "milestone_sequence": 1,
+        "milestone_status": "wip",
+        "milestone_task": [
+            {
+                "task_title": "",
+                "document_name": "",
+                "task_sequence": 1,
+                "status": "wip",
+                "challenge": {
+                    "input": null,
+                    "expected_output": null,
+                    "max_score": null
+                }
+            },
+            {
+                "task_title": "",
+                "document_name": "",
+                "task_sequence": 2,
+                "status": "wip",
+                "challenge": {
+                    "input": null,
+                    "expected_output": "",
+                    "max_score": ""
+                }
+            }
+        ]
+    }
+]
