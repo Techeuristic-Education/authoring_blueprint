@@ -27,7 +27,7 @@ It contains two necessary files:
 
     It should contain bash commands to install dependencies. For example, if the project requires a MySQL database, the author should provide the commands to install the MySQL server, and create the required user, database, tables, etc.
 
-    NOTE: Things to remember while creating the `infrastructure.sh` file.
+    **NOTE**: Things to remember while creating the `infrastructure.sh` file.
     - The file should start with `#!/bin/bash`.
     - Do not use the `sudo` keyword in the script as it runs as root user.
 
@@ -35,7 +35,7 @@ It contains two necessary files:
 
     The author should define the project milestones, tasks, and their corresponding instruction file present in the `instructions` directory.
 
-    Its content should be in `JSON` format, refer to the provided[structure.json](instructions/structure.json) file. 
+    Its content should be in `JSON` format, refer to the provided [structure.json](instructions/structure.json) file. 
 
     The `milestone_status` and `task_status` should be kept as `wip` by the author.
 
