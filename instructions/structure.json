@@ -11,10 +11,16 @@
                 "task_sequence": 1,
                 "status": "wip",
                 "challenge": {
-                    "input": null,
-                    "expected_output": null,
-                    "max_score": null
-                }
+                    "question": "",
+                    "choices": [
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "expected_output": ""
+                },
+                "challenge_type": "mcq"
             },
             {
                 "task_title": "",
@@ -22,10 +28,9 @@
                 "task_sequence": 2,
                 "status": "wip",
                 "challenge": {
-                    "input": null,
-                    "expected_output": "",
-                    "max_score": ""
-                }
+                    "expected_output": ""
+                },
+                "challenge_type": "code"
             }
         ]
     }
