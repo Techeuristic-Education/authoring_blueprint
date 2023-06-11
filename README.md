@@ -65,3 +65,7 @@ The `structure.json` file should be at the root of the project. Following are th
 | `task_title` | `str` | The title of the task |
 | `task_sequence` | `int` | The sequence of execution of the task in the milestone |
 | `document_name` | `str` | The filename in the `instructions` folder that contains instructions for the task |
+
+### 6. infrastructure.sh (Optional)
+
+This file is used for creating the environment required for the project. Ideally the environment creation instructions should be a part of the project instructions.
