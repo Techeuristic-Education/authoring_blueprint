@@ -1,61 +1,67 @@
 # authoring_blueprint
-Blueprint for creating authoring projects.
+Blueprint for authoring projects for Techeuristic.
 
-# File Structure
+# Project Structure
 
 Following is the directory structure for the project which an author should follow while creating the project.
 
 ```
-.
-├── instructions/
-│   ├── infrastructure.sh
-│   └── structure.json
-├── source_code/
-├── data/
-├── README.md
-└── models/
+project_name
+├── code
+├── data
+├── instructions
+│   └── instruction_file.md
+└── structure.json
 ```
+
+## Understanding the project structure
+
+### 1. `project_name`
+
+This is the main directory of the project and all the folders - code, data, instructions and the structure.json file must go in here.
  
-## instructions
+### 2. code
 
-The `instructions` directory should contain the `markdown` files. The author is free to name the instruction files at their convenience.
+This directory contains the raw source code of the project. This is optional, but if provided will make the project related QnA easy.
 
-It contains two necessary files:
-- `infrastructure.sh`
+### 3. instructions
 
-    Techeuristic provides an `ubuntu` server with each project registration to the learner where they perform the project instructions. So author needs to provide the environment required to run the project in the `ubuntu` system. 
+This directory should contain the instructions as `markdown` files. The author is free to name the instruction files at their convenience. The file names must be unique within a project and they should be linked to the respective task in the `structure.json`.
 
-    It should contain bash commands to install dependencies. For example, if the project requires a MySQL database, the author should provide the commands to install the MySQL server, and create the required user, database, tables, etc.
+### 4. data
 
-    **NOTE**: Things to remember while creating the `infrastructure.sh` file.
-    - The file should start with `#!/bin/bash`.
-    - Do not use the `sudo` keyword in the script as it runs as root user.
+This directory contains the data files for the project. All the projects may not require data files, but in most of the Data Science projects, the data would have to be provided.
 
-- `structure.json`
+### 5. `structure.json`
 
-    The author should define the project milestones, tasks, and their corresponding instruction file present in the `instructions` directory.
+The `structure.json` file should be at the root of the project. Following are the keys at the root level of the file:
 
-    Its content should be in `JSON` format, refer to the provided [structure.json](instructions/structure.json) file. 
+| Key | Data Type | Description |
+| --- | --- | --- |
+| `title` | `str` | The title of the project |
+| `business_objectives` | `str` | What is the business trying to achieve? |
+| `business_benefits` | `str` | What benefit will the business gain if the objectives are met? |
+| `technical_overview` | `str` | A summarized technical approach for solving the problem |
+| `project_key_points` | `list` | A list of points that Techeuristic learners will learn / gain by attempting this project |
+| `environment` | `list` | The stack used by the author for implementing the project |
+| `industry` | `str` | The industry to which the problem statement / the company caters to |
+| `structure` | `list` | A list of dictionaries containing milestone and task details |
+| `language` | `str` | The programming language in which the solution is coded |
+| `category` | `str` | The category of the project. It could be one of NLP, Computer Vision, Tabular, Audio, Multimodal, Backend, Frontend, Cloud Computing, MLOps, DevOps etc. |
 
-    The `milestone_status` and `task_status` should be kept as `wip` by the author.
+#### 5.1 Keys for milestones
 
-    The `max_score` for task's challenge could be 10, 20 or 30 depending on the challenge complexity. 
+| Key | Data Type | Description |
+| --- | --- | --- |
+| `milestone_title` | `str` | The title of the milestone |
+| `milestone_description` | `str` | A summary of what will be achieved in this milestone |
+| `milestone_sequence` | `int` | The sequence of execution of the milestone in the project |
+| `milestone_task` | `list` | A list of dictionaries containing task details |
 
-    In case their is no challenge in the task, set `input`, `expected_output` and `max_score` to `null`.
+#### 5.2 Keys for tasks
 
-- instruction file
-
-The author should provide their instructions in `markdown` format and file's extension should be `.md`. 
-The instructions should be divided in three parts by keyword `<THBREAK>`. First part should be the instructions for the task. Second part should contain the challenge for the task and third part should contain the solution for the challenge.
-
-## source_code
-
-It should contain the author's source code for the project.
-
-## data
-
-In case the project requires some additional data, the author can provide it in the `data` directory. For example, if the project is related to machine learning and requires some `CSV` files for training the model, the author can provide those files in this directory.
-
-## models
-
-For deep learning projects, the models are resource and time intensive. The author can provide the pre-trained model in the `models` directory.
+| Key | Data Type | Description |
+| --- | --- | --- |
+| `task_title` | `str` | The title of the task |
+| `task_sequence` | `int` | The sequence of execution of the task in the milestone |
+| `document_name` | `str` | The filename in the `instructions` folder that contains instructions for the task |

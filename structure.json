@@ -1,0 +1,51 @@
+{
+  "title": "Understand airlines traveller experience by identifying the sentiment on twitter data",
+  "business_objectives": "Smart Bookings is an OTA (Online Travel Agent) that helps its clients book airline tickets online. They work with limited airline companies like Delta Airlines, Southwest Airlines, United Airlines, US Airways, Virgin America and American Airlines. They have to meet the ticket sales target every quarter for all the partner airlines. They are now exploring the possibility of utilizing the traveler sentiments to offer discounts. As per the business analysts, airlines with poor quality of service often attract 3x less travellers as compared to the ones who fare well in the customer satisfaction.",
+  "business_benefits": "The hypothesis is to check if it makes sense to offer less discounts to the airlines where customer satisfaction is good as people would prefer opting for these airlines over the ones where the airline customer satisfaction is low. The approach is to check this on a monthly basis and decide on the discount strategies accordingly. As per the business analysts by cutting down discounts on high demand airlines, the margin on sales can go up by ~10%.",
+  "technical_overview": "We will use sentiment analysis as a method to understand airlines traveler experience. The Data Engineering team fetches the tweets for the partner companies on a monthly basis and is saves it on a server as a `.csv` file. We need to build and run a base sentiment analysis model which can be used to identify the sentiments. The predictions would be added to a `Sentiment` column to the file. We also need to provide a total sentiment score for the month for each airlines to the business analysts team.",
+  "project_key_points": [
+    "Understand the basic bag of words approach used for text classification",
+    "Created an automated sentiment analysis pipeline",
+    "Create a scheduler to run the pipeline every month"
+  ],
+  "environment": ["aws-lambda", "scikit-learn", "pandas", "nltk"],
+  "industry": "Airlines",
+  "structure": [
+    {
+      "milestone_title": "Setup, EDA and Pre-processing",
+      "milestone_description": "In this milestone we will cover the project set up, understand the EDA that needs to be performed on the data, run the necessary pre-processing steps in order to prepare the data that can be passed to the ML model for training. Our main objective is to create a pipeline that automates the pre-processing steps which can be utilized during the inference.",
+      "milestone_sequence": 1,
+      "milestone_task": [
+        {
+          "task_title": "Project introduction",
+          "task_sequence": 1,
+          "document_name": "project_intro.md"
+        },
+        {
+          "task_title": "Validate the pattern of phone number",
+          "task_sequence": 2,
+          "document_name": "validation.md"
+        }
+      ]
+    },
+    {
+      "milestone_title": "Model building and inference",
+      "milestone_description": "In this milestone we will build on top of the findings and pre-processing function created in the previous milestone. In the end we will create an automated pipeline that reads CSV files from a pre-defined location, predict the sentiment and save the overall score.",
+      "milestone_sequence": 2,
+      "milestone_task": [
+        {
+          "task_title": "Search and Edit a Contact",
+          "task_sequence": 1,
+          "document_name": "search.md"
+        },
+        {
+          "task_title": "Save and Load Model",
+          "task_sequence": 2,
+          "document_name": "save_load.md"
+        }
+      ]
+    }
+  ],
+  "language": "Python",
+  "category": "NLP"
+}
